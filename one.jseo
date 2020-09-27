@@ -1,10 +1,14 @@
+"once :" [exec]
+{var cmd=std.popen( each ,"r");}
 loader [mpg] 
 {./ffmpeg -i ${added} },
+loader [mp3] 
+{${added} -vn audio.mp3},
 
 mpg("lioralapointe.mp4"),
+mp3("${jseo.mpg.first}"),
 
 {
-  var cmd=std.popen( jseo.mpg.first + " -vn audio.mp3","r") ;
-  
+  this.exec(jseo.mp3);
   return "Done. "; 
 }
