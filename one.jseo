@@ -1,0 +1,10 @@
+loader [mpg] 
+{./ffmpeg -i ${added} },
+
+mpg("lioralapointe.mp4"),
+
+{
+  var cmd=std.popen( jseo.mpg.first + " -vn audio.mp3","r") ;
+  
+  return "Done. "; 
+}
